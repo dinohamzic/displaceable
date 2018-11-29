@@ -1,0 +1,8 @@
+{
+  "env": { "browser": true },
+  "extends": "standard",
+  "rules": {
+    "padded-blocks": ["error", { "classes": "always" }],
+    "space-before-function-paren": ["error", "never"]
+  }
+}
