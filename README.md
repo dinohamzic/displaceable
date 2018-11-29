@@ -2,6 +2,8 @@
 
 A tiny JavaScript library that handles super smooth element displacement on mouse move.
 
+![Displaceable screen capture](screen-capture.gif)
+
 ---
 
 ## Setup
@@ -11,7 +13,6 @@ A tiny JavaScript library that handles super smooth element displacement on mous
 ```bash
 npm install displaceable
 ```
-
 ## Basic usage
 
 #### Import:
