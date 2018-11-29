@@ -32,7 +32,7 @@ export default class Displaceable {
     if (nodes instanceof Array) {
       nodes.forEach(node => {
         if (!(node instanceof Node)) {
-          throw new Error(`Error: "${node}" is not a valid Node.`)
+          throw new Error(`"${node}" is not a valid Node.`)
         }
       })
 
@@ -57,7 +57,7 @@ export default class Displaceable {
 
     if (!(trigger instanceof Node) && trigger !== window) {
       throw new Error(
-        `Error: "${trigger}" is not a valid displacement trigger. ` +
+        `"${trigger}" is not a valid displacement trigger. ` +
         `The displacement trigger must be a valid HTML Node.`
       )
     }
@@ -70,7 +70,7 @@ export default class Displaceable {
 
       if (width === 0 || height === 0) {
         throw new Error(
-          `Error: "${trigger}" has invalid dimensions. ` +
+          `"${trigger}" has invalid dimensions. ` +
           `Both width and height must be greater than zero.`
         )
       }
