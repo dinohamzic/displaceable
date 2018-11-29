@@ -8,7 +8,7 @@ A tiny JavaScript library that handles super smooth element displacement on mous
 
 ## Demo and code examples
 
-Coming soon...
+Live [demo](https://subtlebits.com/projects/displaceable) and React implementation [example](https://github.com/dinohamzic/www-subtlebits-com/blob/master/pages/projects/displaceable.js).
 
 ## Setup
 
