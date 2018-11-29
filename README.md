@@ -1,6 +1,6 @@
 # displaceable
 
-A tiny JavaScript library that handles super smooth element displacement on mouse move.
+A tiny JavaScript library that handles super smooth element displacement on mouse move. Inspired by this [shot](https://dribbble.com/shots/5594494-Molley-Heltz-Inspiration-Page-Animation).
 
 ![Displaceable screen capture](screen-capture.gif)
 
