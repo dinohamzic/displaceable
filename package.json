@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel src -d lib"
   },
+  "repository": "github:dinohamzic/displaceable",
   "keywords": [
     "animate",
     "animation",
