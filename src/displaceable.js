@@ -4,6 +4,11 @@
 
 export default class Displaceable {
 
+  /**
+   * @constructor
+   * @param {(Node|NodeList|Node[])} nodes - The Nodes to be displaced.
+   * @param {Object} settings - The object that overrides default settings.
+   */
   constructor(nodes, settings = {}) {
     try {
       this.nodes = this.normalizeNodes(nodes)
@@ -17,6 +22,11 @@ export default class Displaceable {
     this.addEventListeners()
   }
 
+  /**
+   * Converts a single Node or a NodeList to an array of Nodes.
+   * @param {(Node|NodeList|Node[])} nodes - The Nodes to be displaced.
+   * @returns {Node[]} An array of Nodes.
+   */
   normalizeNodes(nodes) {
     if (!nodes) {
       throw new Error(
@@ -44,7 +54,17 @@ export default class Displaceable {
     }
   }
 
-  initializeSettings(customSettings) {
+  /**
+   * Initialize the settings of the current instance.
+   * @param {Object} customSettings - The object that overrides default settings.
+   * @param {number} customSettings.displaceFactor - Multiplier for the translate transformation.
+   * @param {boolean} customSettings.lockX - If true, Nodes will only move on the Y axis.
+   * @param {boolean} customSettings.lockY - If true, Nodes will only move on the X axis.
+   * @param {number} customSettings.resetTime - How fast the Nodes will return to their original position (in milliseconds).
+   * @param {number} customSettings.skewFactor - Multiplier for the skew transformation.
+   * @param {(window|Node)} customSettings.trigger - The node that triggers the displacement.
+   */
+  initializeSettings(customSettings = {}) {
     this.settings = {
       displaceFactor: 3,
       lockX: false,
