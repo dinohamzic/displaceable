@@ -1,3 +1,7 @@
+// TODO:
+// 1. debounce resize and scroll events
+// 2. create method to destroy resize and scroll event listeners
+
 export default class Displaceable {
 
   constructor(nodes, settings = {}) {
@@ -62,9 +66,11 @@ export default class Displaceable {
       )
     }
 
+    const scrollY = window.scrollY
+
     if (trigger === window) {
       this.triggerCenterX = window.innerWidth / 2
-      this.triggerCenterY = window.innerHeight / 2
+      this.triggerCenterY = window.innerHeight / 2 + scrollY
     } else {
       const { x, y, width, height } = trigger.getBoundingClientRect()
 
@@ -76,7 +82,7 @@ export default class Displaceable {
       }
 
       this.triggerCenterX = x + width / 2
-      this.triggerCenterY = y + height / 2
+      this.triggerCenterY = y + height / 2 + scrollY
     }
   }
 
@@ -92,6 +98,7 @@ export default class Displaceable {
     trigger.onmousemove = e => this.handleMouseMove(e)
     trigger.onmouseout = () => this.handleMouseOut()
     window.addEventListener(`resize`, () => this.initializeTrigger())
+    window.addEventListener(`onscroll`, () => this.initializeTrigger())
   }
 
   handleMouseMove(e) {
@@ -111,7 +118,7 @@ export default class Displaceable {
 
   animateNodes(e) {
     const mouseX = e.clientX
-    const mouseY = e.clientY
+    const mouseY = e.clientY + window.scrollY
 
     const displacementStrengthX = mouseX - this.triggerCenterX
     const displacementStrengthY = mouseY - this.triggerCenterY
