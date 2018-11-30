@@ -2,5 +2,6 @@
   "presets": [
     ["@babel/preset-env", { "targets": { "ie": "10" } }],
     "minify"
-  ]
+  ],
+  "comments": false
 }
