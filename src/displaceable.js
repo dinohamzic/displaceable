@@ -177,7 +177,7 @@ export default class Displaceable {
         `skew(${skewY}deg, ${skewX}deg)`
       )
 
-      node.style.transition = `transform .05s`
+      node.style.transition = `transform .05s linear`
       node.style.transform = transform
     })
   }
