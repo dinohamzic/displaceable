@@ -1,6 +1,6 @@
 {
   "name": "displaceable",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Super smooth element displacement on mouse move.",
   "main": "lib/displaceable.js",
   "scripts": {
