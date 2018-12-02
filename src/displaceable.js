@@ -143,7 +143,7 @@ export default class Displaceable {
     const displacementStrengthX = mouseX - this.triggerCenterX
     const displacementStrengthY = mouseY - this.triggerCenterY
 
-    let { displaceFactor, skewFactor } = this.settings
+    let { displaceFactor, lockX, lockY, skewFactor } = this.settings
 
     this.nodes.forEach(node => {
       displaceFactor = node.dataset.displaceFactor
@@ -170,6 +170,16 @@ export default class Displaceable {
 
       if (displacementStrengthY < 0) {
         displaceY *= -1
+      }
+
+      if (lockX || node.dataset.lockX) {
+        displaceX = 0
+        skewY = 0
+      }
+
+      if (lockY || node.dataset.lockY) {
+        displaceY = 0
+        skewY = 0
       }
 
       const transform = (
