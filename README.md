@@ -60,20 +60,32 @@ You can pass an object as the second parameter of `Displaceable()` to modify the
 ```js
 const displaceable = new Displaceable(document.getElementById('id'), {
   displaceFactor: 3, // how much the nodes translate on mouse move (float)
+  lockX: true,       // lock movement on the X axis (boolean)
+  lockY: false,      // lock movement on the Y axis (boolean)
   resetTime: 1000,   // how much it takes the nodes to reset when the mouse leaves the trigger area (ms)
   skewFactor: 5,     // how much the nodes skew on mouse move (float)
   trigger: window    // the element that responds to the on mouse move event (window or Node)
 });
 ```
 
-#### Data attributes: `data-displace-factor` and `data-skew-factor`
+#### Data attributes:
+
+- `data-displace-factor`
+- `data-lock-x`
+- `data-lock-y`
+- `data-skew-factor`
 
 To control each Node independently, use the following data attributes. The value set in the data attribute will override the one in the configuration object only for that particular element.
 
 ```html
 <img
-     data-displace-factor="10"
-     data-skew-factor="10"
-     id="example-id"
+  data-displace-factor="10"
+  data-skew-factor="10"
+  id="example-id"
+/>
+
+<div
+  data-lock-x="true"
+  id="example-id"
 />
 ```
