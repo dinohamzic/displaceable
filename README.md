@@ -55,18 +55,26 @@ const displaceable = new Displaceable([
 
 #### `settings` object
 
-You can pass an object as the second parameter of `Displaceable()` to modify the settings of the current instance.
+You can pass an object as the second parameter of `Displaceable()` to modify the instance settings.
 
 ```js
-const displaceable = new Displaceable(document.getElementById('id'), {
-  displaceFactor: 3, // how much the nodes translate on mouse move (float)
-  lockX: true,       // lock movement on the X axis (boolean)
-  lockY: false,      // lock movement on the Y axis (boolean)
-  resetTime: 1000,   // how much it takes the nodes to reset when the mouse leaves the trigger area (ms)
-  skewFactor: 5,     // how much the nodes skew on mouse move (float)
-  trigger: window    // the element that responds to the on mouse move event (window or Node)
+const displaceable = new Displaceable(document.getElementById('node-id'), {
+  displaceFactor: 5,
+  lockY: true,
+  resetTime: 500,
+  skewFactor: 10,
+  trigger: document.getElementById('trigger-id')
 });
 ```
+
+Property | Type | Default | Description
+------ | ---- | ------- | -----------
+displaceFactor | number | 3 | Multiplier for the translate transformation. The bigger the number, the more the Nodes will move. You can use a negative value to invert the direction of the movement.
+lockX | boolean | false | If set to `true`, Nodes will only move on the Y axis.
+lockY | boolean | false | If set to `true`, Nodes will only move on the X axis.
+resetTime | number | 1000 | How fast the Nodes will return to their original position (in milliseconds).
+skewFactor | number | 5 | Multiplier for the skew transformation. The bigger the number, the more Nodes will skew. You can use a negative value to invert the skewing direction.
+trigger | window\|Node | window | The node that triggers the displacement. It can be any node with height and width greater than zero.
 
 #### Data attributes:
 
@@ -75,17 +83,19 @@ const displaceable = new Displaceable(document.getElementById('id'), {
 - `data-lock-y`
 - `data-skew-factor`
 
-To control each Node independently, use the following data attributes. The value set in the data attribute will override the one in the configuration object only for that particular element.
+To control each Node independently, use the following data attributes. The value set in the data attribute will override the one in the `settings` object only for that particular element.
 
 ```html
 <img
   data-displace-factor="10"
   data-skew-factor="10"
-  id="example-id"
+  id="img-id"
 />
 
 <div
-  data-lock-x="true"
-  id="example-id"
-/>
+  data-lock-y="true"
+  id="div-id"
+>
+  I'm displaceable and I can only move horizontally!
+</div>
 ```
