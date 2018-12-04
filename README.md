@@ -74,7 +74,7 @@ lockX | boolean | false | If set to `true`, Nodes will only move on the Y axis.
 lockY | boolean | false | If set to `true`, Nodes will only move on the X axis.
 resetTime | number | 1000 | How fast the Nodes will return to their original position (in milliseconds).
 skewFactor | number | 5 | Multiplier for the skew transformation. The bigger the number, the more Nodes will skew. You can use a negative value to invert the skewing direction.
-trigger | window\|Node | window | The node that triggers the displacement. It can be any node with height and width greater than zero.
+trigger | window\|Node | window | The Node that triggers the displacement. It can be any Node with height and width greater than zero.
 
 #### Data attributes:
 
