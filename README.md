@@ -99,3 +99,14 @@ To control each Node independently, use the following data attributes. The value
   I'm displaceable and I can only move horizontally!
 </div>
 ```
+
+## Methods
+
+#### `destroy`: destroys all the associated events of a particular instance
+
+```
+const displaceable = new Displaceable(document.getElementById('id'));
+
+displaceable.destroy();
+```
+
