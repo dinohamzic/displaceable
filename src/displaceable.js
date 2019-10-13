@@ -1,6 +1,5 @@
 // TODO:
 // 1. debounce resize and scroll events
-// 2. create method to destroy resize and scroll event listeners
 
 export default class Displaceable {
 
@@ -17,6 +16,8 @@ export default class Displaceable {
     } catch (e) {
       return console.error(e)
     }
+
+    this.initializeTrigger = this.initializeTrigger.bind(this)
 
     this.initializeNodes()
     this.addEventListeners()
@@ -117,8 +118,8 @@ export default class Displaceable {
     const { trigger } = this.settings
     trigger.onmousemove = e => this.handleMouseMove(e)
     trigger.onmouseout = () => this.handleMouseOut()
-    window.addEventListener(`resize`, () => this.initializeTrigger())
-    window.addEventListener(`onscroll`, () => this.initializeTrigger())
+    window.addEventListener(`resize`, this.initializeTrigger)
+    window.addEventListener(`onscroll`, this.initializeTrigger)
   }
 
   handleMouseMove(e) {
@@ -190,6 +191,14 @@ export default class Displaceable {
       node.style.transition = `transform .05s linear`
       node.style.transform = transform
     })
+  }
+
+  destroy() {
+    const { trigger } = this.settings
+    trigger.onmousemove = null
+    trigger.onmouseout = null
+    window.removeEventListener(`resize`, this.initializeTrigger)
+    window.removeEventListener(`onscroll`, this.initializeTrigger)
   }
 
 }
